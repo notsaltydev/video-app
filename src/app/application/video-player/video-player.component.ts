@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {VideoService} from '../../services/video.service';
+import {Video} from './model/video.interface';
 
 @Component({
   selector: 'app-video-player',
@@ -13,9 +14,10 @@ export class VideoPlayerComponent implements OnInit {
   @ViewChild('volumeSlider') volumeSlider: any;
   @ViewChild('allowFullscreen') allowFullscreen: any;
   percentage: any;
+  currentVideo: Video;
   private currentTime: any;
   private duration: any = '0.00';
-  videos: Array<{ src: string }> = [];
+  videos: Array<Video> = [];
   fullScreenEnabled: any = !!(document.fullscreenEnabled ||
     document.webkitFullscreenEnabled ||
     document.createElement('video').webkitRequestFullScreen);
@@ -26,6 +28,7 @@ export class VideoPlayerComponent implements OnInit {
 
   ngOnInit() {
     this.videos = this._videoService.getAllVideos();
+    this.currentVideo = this.videos[0];
     this.setEventListeners();
   }
 
@@ -81,5 +84,10 @@ export class VideoPlayerComponent implements OnInit {
 
   setFullscreenData(state) {
     this.videoPlayer.nativeElement.setAttribute('data-fullscreen', !!state);
+  }
+
+  onChangeVideo(video: Video): void {
+    this.currentVideo = video;
+    this.setEventListeners();
   }
 }

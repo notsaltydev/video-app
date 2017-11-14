@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { VideoPlayerComponent } from './application/video-player/video-player.component';
+import {VideoService} from './services/video.service';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,9 @@ import { VideoPlayerComponent } from './application/video-player/video-player.co
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    VideoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
