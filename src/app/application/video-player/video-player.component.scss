@@ -1,5 +1,4 @@
 
-
 .row {
   margin: 15px 0;
   .video {
@@ -14,7 +13,6 @@
       background-position: center;
 
     }
-
 
     video[poster] {
       height: 100%;
@@ -38,16 +36,16 @@
           li {
             display: flex;
             align-items: center;
-            margin-right: 5px;
+            margin: 0 5px;
             &.vol-range {
               max-width: 20%;
             }
-            &:first-child {
-              margin-left: 5px;
-            }
-            &:last-child {
-              margin-right: 5px;
-            }
+            //&:first-child {
+            //  margin-left: 5px;
+            //}
+            //&:last-child {
+            //  margin-right: 5px;
+            //}
             span {
               &.time {
                 color: #FFFFFF;
@@ -62,8 +60,8 @@
               font-size: 20px;
               color: #D5D5D5;
             }
-            &.mute{
-              .fa-volume-off{
+            &.mute {
+              .fa-volume-off {
                 left: auto;
                 right: 12%;
                 font-size: 2em;
