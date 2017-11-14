@@ -25,7 +25,7 @@
               </li>
               <li>
                 <span class="time">
-                  {{currentTime ? currentTime : "0.00"}}
+                  {{(currentTime ? currentTime : 0) | number:'1.2-2' }}
                 </span>
               </li>
               <li class="progress">
@@ -36,20 +36,21 @@
               </li>
               <li>
               <span class="time">
-                {{duration ? duration : "0.00"}}
+                {{(duration ? duration : 0) | number:'1.2-2'}}
               </span>
               </li>
               <li class="vol-range">
                 <input class="volume-range" #volumeSlider type="range" min="0" max="100" step="1"/>
               </li>
               <li>
-                <a>
-                  <i class="fa fa-volume-off"></i>
-                </a>
-              </li>
-              <li>
-                <a>
-                  <i class="fa fa-arrows-alt" #allowFullscreen></i>
+                <a class="mute" (click)="onMuteVideo()">
+                  <span class="fa-stack">
+                    <i class="fa fa-volume-off fa-stack-2x fa-nudge-left"></i>
+                    <i
+                      *ngIf="videoPlayer.muted"
+                      class="fa fa-times fa-right">
+                    </i>
+                  </span>
                 </a>
               </li>
             </ul>
