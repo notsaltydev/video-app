@@ -53,7 +53,8 @@ export class VideoPlayerComponent implements OnInit {
   }
 
   private fetchVideos(): void {
-    this.videos = this._videoService.getAllVideos();
+    this._videoService.getAllVideos()
+      .subscribe(response => this.videos = response);
     this.currentVideo = this.videos[0];
   }
 
