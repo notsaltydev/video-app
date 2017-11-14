@@ -1,0 +1,32 @@
+video {
+  width: 100%;
+  height: auto;
+}
+
+
+.controls-container {
+
+}
+.row{
+  margin: 15px 0;
+}
+.media-controls {
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    .progress {
+      width: 30%;
+      margin: 0;
+    }
+    a{
+      cursor: pointer;
+      i{
+        color: #D5D5D5;
+      }
+    }
+  }
+}
