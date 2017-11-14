@@ -12,7 +12,6 @@ export class VideoPlayerComponent implements OnInit {
   @ViewChild('videoPlayer') videoPlayer: ElementRef;
   @ViewChild('progressBar') progressBar: ElementRef;
   @ViewChild('volumeSlider') volumeSlider: ElementRef;
-  @ViewChild('allowFullscreen') allowFullscreen: ElementRef;
   percentage: string;
   currentTime: number;
   duration: number;
@@ -20,7 +19,6 @@ export class VideoPlayerComponent implements OnInit {
   videos: Array<Video> = [];
 
   constructor(private _videoService: VideoService) {
-
   }
 
   onPlayOrPause(): void {
@@ -36,9 +34,10 @@ export class VideoPlayerComponent implements OnInit {
     this.percentage = '0.00';
     this.currentVideo = video;
     this.setEventListeners();
+    this.onPlayOrPause();
   }
 
-  onMuteVideo() {
+  onMuteVideo(): void {
     this.videoPlayer.nativeElement.muted = !this.videoPlayer.nativeElement.muted;
   }
 
@@ -103,7 +102,5 @@ export class VideoPlayerComponent implements OnInit {
     this.duration = (this.videoPlayer.nativeElement.duration / 60);
     this.currentTime = (this.videoPlayer.nativeElement.currentTime / 60);
   }
-
-
 
 }
