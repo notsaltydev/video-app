@@ -41,6 +41,7 @@ section.video-player{
                   color: #FFFFFF;
                 }
               }
+
             }
             a {
               display: flex;
@@ -74,6 +75,10 @@ section.video-player{
     .video-playlist {
       li {
         cursor: pointer;
+        .media{
+          display: flex;
+          align-items: center;
+        }
       }
     }
   }
